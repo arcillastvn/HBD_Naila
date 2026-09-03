@@ -6,96 +6,107 @@
 <title>Happy Birthday Naila 🩵</title>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Pacifico&display=swap');
+
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 body {
-    margin: 0;
-    font-family: "Trebuchet MS", sans-serif;
-    background: linear-gradient(#dff4ff, #ffffff);
-    color: #4d6f80;
-    overflow-x: hidden;
+  margin: 0;
+  font-family: 'Quicksand', sans-serif;
+  background: linear-gradient(180deg, #eaf7ff, #d8efff);
+  color: #52718a;
+  overflow-x: hidden;
 }
 
 /* =========================
-   DECORATION
+   BACKGROUND
 ========================= */
 
 .cloud {
-    position: fixed;
-    font-size: 55px;
-    opacity: .45;
-    animation: float 7s ease-in-out infinite;
-    z-index: -1;
+  position: fixed;
+  background: rgba(255,255,255,.75);
+  border-radius: 50px;
+  width: 130px;
+  height: 45px;
+  z-index: -1;
+  filter: blur(1px);
+  animation: cloudMove 18s linear infinite;
+}
+
+.cloud::before,
+.cloud::after {
+  content: "";
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+}
+
+.cloud::before {
+  width: 55px;
+  height: 55px;
+  left: 20px;
+  bottom: 15px;
+}
+
+.cloud::after {
+  width: 70px;
+  height: 70px;
+  right: 20px;
+  bottom: 10px;
 }
 
 .cloud1 {
-    top: 8%;
-    left: 5%;
+  top: 12%;
+  left: -150px;
 }
 
 .cloud2 {
-    top: 25%;
-    right: 5%;
-    animation-delay: 2s;
+  top: 48%;
+  left: -200px;
+  transform: scale(.7);
+  animation-delay: 5s;
 }
 
 .cloud3 {
-    bottom: 12%;
-    left: 10%;
-    animation-delay: 1s;
+  top: 78%;
+  left: -180px;
+  transform: scale(.85);
+  animation-delay: 10s;
 }
 
-@keyframes float {
-    0%,100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-12px);
-    }
+@keyframes cloudMove {
+  from { left: -200px; }
+  to { left: 110%; }
 }
 
 .sparkle {
-    position: fixed;
-    color: white;
-    font-size: 20px;
-    animation: sparkle 2s infinite;
-    z-index: -1;
+  position: fixed;
+  color: white;
+  font-size: 20px;
+  z-index: -1;
+  animation: sparkle 2.5s infinite ease-in-out;
 }
 
-.s1 {
-    top: 15%;
-    left: 25%;
-}
-
-.s2 {
-    top: 45%;
-    right: 20%;
-    animation-delay: .7s;
-}
-
-.s3 {
-    bottom: 20%;
-    right: 30%;
-    animation-delay: 1.3s;
-}
+.s1 { top: 15%; left: 15%; }
+.s2 { top: 30%; right: 15%; animation-delay: .7s; }
+.s3 { top: 65%; left: 10%; animation-delay: 1.2s; }
+.s4 { top: 82%; right: 12%; animation-delay: 1.8s; }
 
 @keyframes sparkle {
-    0%,100% {
-        opacity: .2;
-        transform: scale(.8);
-    }
-
-    50% {
-        opacity: 1;
-        transform: scale(1.2);
-    }
+  0%,100% {
+    opacity: .2;
+    transform: scale(.7);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
 }
 
 /* =========================
@@ -103,62 +114,88 @@ body {
 ========================= */
 
 #passwordScreen {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 25px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
 }
 
 .password-box {
-    background: rgba(255,255,255,.9);
-    padding: 35px 25px;
-    border-radius: 25px;
-    text-align: center;
-    width: 100%;
-    max-width: 350px;
-    box-shadow: 0 10px 30px rgba(100,170,200,.18);
+  width: min(390px, 100%);
+  background: rgba(255,255,255,.9);
+  padding: 40px 30px;
+  border-radius: 30px;
+  text-align: center;
+  box-shadow: 0 15px 50px rgba(100,160,200,.2);
+  animation: popIn .8s ease;
 }
 
 .password-box h1 {
-    margin-bottom: 8px;
+  color: #6da8d0;
+  margin-bottom: 8px;
 }
 
 .password-box p {
-    margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 
-input {
-    width: 100%;
-    padding: 13px;
-    border: 2px solid #c7eafa;
-    border-radius: 15px;
-    outline: none;
-    text-align: center;
-    font-size: 16px;
+.password-box input {
+  width: 100%;
+  padding: 14px;
+  border: 2px solid #c9e8fa;
+  border-radius: 15px;
+  outline: none;
+  text-align: center;
+  font-family: inherit;
+  font-size: 16px;
 }
 
-button {
-    border: none;
-    background: #a9ddf5;
-    color: white;
-    padding: 12px 22px;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 15px;
-    margin-top: 12px;
-    transition: .2s;
+.password-box button {
+  margin-top: 15px;
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 15px;
+  background: #a9d9f7;
+  color: white;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  transition: .3s;
 }
 
-button:hover {
-    background: #91d3ef;
-    transform: scale(1.03);
+.password-box button:hover {
+  transform: translateY(-3px);
+  background: #8fc9ee;
 }
 
 #error {
-    color: #e89a9a;
-    margin-top: 10px;
-    display: none;
+  color: #e997aa;
+  margin-top: 12px;
+  display: none;
+  font-size: 14px;
+}
+
+.shake {
+  animation: shake .35s;
+}
+
+@keyframes shake {
+  25% { transform: translateX(-7px); }
+  50% { transform: translateX(7px); }
+  75% { transform: translateX(-5px); }
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 /* =========================
@@ -166,31 +203,65 @@ button:hover {
 ========================= */
 
 #main {
-    display: none;
+  display: none;
+  padding-bottom: 80px;
 }
 
 section {
-    min-height: 100vh;
-    padding: 60px 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+  width: min(850px, 92%);
+  margin: 0 auto;
+  padding: 80px 0;
+  text-align: center;
+}
+
+.section-title {
+  color: #659bc0;
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.section-subtitle {
+  margin-top: 0;
+  color: #82a8bf;
 }
 
 /* =========================
-   TITLE
+   HERO
 ========================= */
 
-.title h1 {
-    font-size: clamp(35px, 9vw, 65px);
-    margin: 10px;
-    color: #75bddb;
+.hero {
+  min-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.title p {
-    font-size: 18px;
+.hero .small {
+  color: #91b8d2;
+  font-weight: 600;
+}
+
+.hero h1 {
+  font-family: 'Pacifico', cursive;
+  color: #6da8d0;
+  font-size: clamp(40px, 10vw, 70px);
+  margin: 10px 0;
+  text-shadow: 3px 4px 0 white;
+}
+
+.hero p {
+  font-size: 18px;
+}
+
+.scroll {
+  margin-top: 35px;
+  animation: bounce 1.5s infinite;
+  color: #8ab7d3;
+}
+
+@keyframes bounce {
+  50% { transform: translateY(8px); }
 }
 
 /* =========================
@@ -198,406 +269,456 @@ section {
 ========================= */
 
 .calendar {
-    background: white;
-    border-radius: 25px;
-    padding: 25px;
-    width: 100%;
-    max-width: 390px;
-    box-shadow: 0 10px 30px rgba(100,170,200,.15);
-    animation: appear 1s ease;
+  background: rgba(255,255,255,.82);
+  border-radius: 30px;
+  padding: 25px;
+  box-shadow: 0 15px 40px rgba(100,160,200,.15);
 }
 
-.calendar h2 {
-    color: #75bddb;
+.month {
+  font-size: 25px;
+  font-weight: 700;
+  color: #6ca4ca;
+  margin-bottom: 20px;
 }
 
-.days,
-.dates {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 8px;
-    margin-top: 12px;
+.weekdays,
+.days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
 }
 
-.days div {
-    font-weight: bold;
-    font-size: 12px;
+.weekdays div {
+  font-size: 12px;
+  font-weight: 700;
+  color: #9ab8ca;
 }
 
-.dates div {
-    padding: 9px 3px;
-    border-radius: 50%;
+.day {
+  aspect-ratio: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  font-weight: 600;
+}
+
+.day.empty {
+  background: transparent;
+}
+
+.day:not(.empty):hover {
+  background: #edf8ff;
 }
 
 .birthday {
-    background: #a9ddf5;
-    color: white;
-    animation: pulse 1.5s infinite;
+  background: #a9d9f7;
+  color: white;
+  position: relative;
+  animation: birthdayPulse 1.8s infinite;
 }
 
-@keyframes pulse {
-    50% {
-        transform: scale(1.15);
-        box-shadow: 0 0 15px rgba(120,200,240,.6);
-    }
+.birthday::after {
+  content: "🎀";
+  position: absolute;
+  font-size: 14px;
+  top: -12px;
+  right: -5px;
+}
+
+@keyframes birthdayPulse {
+  50% {
+    transform: scale(1.08);
+    box-shadow: 0 8px 20px rgba(120,190,230,.3);
+  }
 }
 
 /* =========================
    ENVELOPE
 ========================= */
 
-.envelope-container {
-    margin-top: 25px;
-    cursor: pointer;
+.envelope-area {
+  min-height: 650px;
 }
 
+.envelope-scene {
+  position: relative;
+  width: 330px;
+  height: 520px;
+  margin: 70px auto 0;
+}
+
+/* envelope */
 .envelope {
-    width: 280px;
-    height: 180px;
-    position: relative;
-    margin: auto;
+  position: absolute;
+  width: 300px;
+  height: 190px;
+  left: 15px;
+  bottom: 30px;
+  cursor: pointer;
 }
 
-.env-body {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 130px;
-    background: #b9e5f7;
-    border-radius: 0 0 15px 15px;
+/* shadow */
+.envelope-shadow {
+  position: absolute;
+  width: 270px;
+  height: 25px;
+  bottom: -15px;
+  left: 15px;
+  background: rgba(80,130,160,.15);
+  filter: blur(8px);
+  border-radius: 50%;
 }
 
-.env-flap {
-    position: absolute;
-    top: 25px;
-    left: 0;
-    width: 0;
-    height: 0;
-    border-left: 140px solid transparent;
-    border-right: 140px solid transparent;
-    border-top: 100px solid #9edaf2;
-    transform-origin: top;
-    transition: transform 1s ease;
-    z-index: 3;
+/* body */
+.envelope-body {
+  position: absolute;
+  inset: 0;
+  background: #b7e0fa;
+  border-radius: 0 0 20px 20px;
+  overflow: hidden;
+  z-index: 3;
 }
 
+/* diagonal folds */
+.envelope-body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(32deg, transparent 49%, rgba(255,255,255,.45) 50%, transparent 51%),
+    linear-gradient(-32deg, transparent 49%, rgba(255,255,255,.35) 50%, transparent 51%);
+}
+
+/* flap */
+.envelope-flap {
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: 0;
+  top: 0;
+  border-left: 150px solid transparent;
+  border-right: 150px solid transparent;
+  border-top: 105px solid #9fd2f2;
+  transform-origin: top center;
+  transition: transform .8s ease;
+  z-index: 6;
+}
+
+/* heart seal */
+.seal {
+  position: absolute;
+  z-index: 8;
+  left: 50%;
+  top: 83px;
+  transform: translateX(-50%);
+  font-size: 30px;
+  transition: opacity .3s;
+}
+
+/* letter */
 .letter {
-    position: absolute;
-    width: 240px;
-    height: 190px;
-    background: white;
-    left: 20px;
-    top: 35px;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,.1);
-    transition: 1s ease;
-    overflow-y: auto;
-    z-index: 2;
-    opacity: 0;
+  position: absolute;
+  width: 280px;
+  min-height: 390px;
+  left: 10px;
+  bottom: 20px;
+
+  background: white;
+  border-radius: 22px;
+  padding: 25px 22px;
+
+  box-shadow: 0 15px 40px rgba(90,150,190,.2);
+
+  opacity: 0;
+  transform: translateY(30px) scale(.95);
+
+  transition:
+    transform 1s cubic-bezier(.2,.8,.2,1),
+    opacity .7s ease;
+
+  z-index: 2;
+  overflow-y: auto;
+  text-align: left;
 }
 
-.letter-text {
-    opacity: 0;
-    transition: opacity 1s ease 1s;
+.letter h2 {
+  text-align: center;
+  color: #6ca5cb;
+  font-size: 21px;
+  margin-top: 0;
 }
 
-.letter-text h2 {
-    color: #6eb8d8;
-    font-size: 21px;
+.letter p {
+  line-height: 1.75;
+  font-size: 14px;
 }
 
-.letter-text p {
-    font-size: 13px;
-    line-height: 1.6;
+.envelope.open .envelope-flap {
+  transform: rotateX(180deg);
 }
 
-.envelope.open .env-flap {
-    transform: rotateX(180deg);
+.envelope.open .seal {
+  opacity: 0;
 }
 
 .envelope.open .letter {
-    top: -125px;
-    opacity: 1;
-}
-
-.envelope.open .letter-text {
-    opacity: 1;
+  opacity: 1;
+  transform: translateY(-250px) scale(1);
+  z-index: 10;
 }
 
 /* =========================
    CAKE GAME
 ========================= */
 
-.cake-game {
-    width: 100%;
-    max-width: 500px;
+.cake-box {
+  background: rgba(255,255,255,.85);
+  border-radius: 30px;
+  padding: 30px 20px;
+  box-shadow: 0 15px 40px rgba(100,160,200,.15);
 }
 
-.game-box {
-    background: rgba(255,255,255,.92);
-    padding: 25px;
-    border-radius: 28px;
-    box-shadow: 0 10px 30px rgba(100,170,200,.15);
+.choice-group {
+  margin: 25px 0;
 }
 
-.game-box h2 {
-    color: #75bddb;
-}
-
-.choice-title {
-    margin-top: 22px;
-    margin-bottom: 10px;
-    font-weight: bold;
+.choice-group h3 {
+  color: #6b9fc0;
 }
 
 .choices {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 9px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
 }
 
 .choice {
-    margin: 0;
-    background: #eefaff;
-    color: #5f8495;
-    border: 2px solid transparent;
-    padding: 10px 14px;
-    border-radius: 18px;
-    font-size: 14px;
+  border: 2px solid #d5edf9;
+  background: white;
+  color: #6e93aa;
+  border-radius: 15px;
+  padding: 11px 15px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: .25s;
 }
 
-.choice:hover {
-    background: #dff5ff;
-    transform: translateY(-2px);
-}
-
+.choice:hover,
 .choice.selected {
-    border-color: #82c9e7;
-    background: #cceeff;
+  background: #dff3ff;
+  border-color: #9ed3ef;
+  transform: translateY(-3px);
 }
 
-#cakeResult {
-    display: none;
-    margin-top: 30px;
-    animation: cakeAppear .8s ease;
+.bake-button,
+.next-button {
+  border: none;
+  background: #9fd4f2;
+  color: white;
+  padding: 14px 24px;
+  border-radius: 18px;
+  font-family: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: .3s;
 }
 
-@keyframes cakeAppear {
-    from {
-        opacity: 0;
-        transform: scale(.7) translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: scale(1) translateY(0);
-    }
+.bake-button:hover,
+.next-button:hover {
+  transform: translateY(-3px);
 }
 
-/* CAKE PREVIEW */
+.cake-result {
+  display: none;
+  margin-top: 30px;
+  animation: popIn .7s ease;
+}
 
 .cake {
-    width: 230px;
-    height: 190px;
-    margin: 15px auto;
-    position: relative;
+  width: 170px;
+  height: 115px;
+  margin: 25px auto;
+  position: relative;
 }
 
-.candle {
-    position: absolute;
-    width: 9px;
-    height: 45px;
-    background: #9edaf2;
-    left: 50%;
-    top: 0;
-    transform: translateX(-50%);
-    border-radius: 5px;
-    z-index: 5;
+.cake-base {
+  position: absolute;
+  bottom: 0;
+  left: 10px;
+  width: 150px;
+  height: 75px;
+  background: #d6a477;
+  border-radius: 15px 15px 20px 20px;
+  box-shadow: inset 0 -12px rgba(0,0,0,.05);
 }
 
-.flame {
-    position: absolute;
-    width: 15px;
-    height: 20px;
-    background: #ffd77a;
-    border-radius: 50% 50% 50% 50%;
-    top: -17px;
-    left: 50%;
-    transform: translateX(-50%);
-    animation: flame 1s infinite;
+.cake-frosting {
+  position: absolute;
+  bottom: 55px;
+  left: 5px;
+  width: 160px;
+  height: 38px;
+  border-radius: 18px 18px 10px 10px;
+  background: white;
 }
 
-@keyframes flame {
-    50% {
-        transform: translateX(-50%) scale(.8);
-    }
+.cake-topping {
+  position: absolute;
+  bottom: 75px;
+  left: 30px;
+  font-size: 25px;
 }
 
-.cake-top {
-    position: absolute;
-    width: 190px;
-    height: 55px;
-    left: 20px;
-    top: 45px;
-    background: #f7d6bd;
-    border-radius: 50%;
-    z-index: 3;
-}
-
-.cake-body {
-    position: absolute;
-    width: 190px;
-    height: 80px;
-    left: 20px;
-    top: 65px;
-    background: #f7d6bd;
-    border-radius: 0 0 18px 18px;
-    z-index: 2;
-}
-
-.cake-plate {
-    position: absolute;
-    width: 220px;
-    height: 18px;
-    left: 5px;
-    bottom: 22px;
-    background: #d7f1fb;
-    border-radius: 50%;
-}
-
-.frosting {
-    position: absolute;
-    width: 190px;
-    height: 25px;
-    left: 20px;
-    top: 62px;
-    border-radius: 0 0 50% 50%;
-    z-index: 4;
-}
-
-.topping {
-    position: absolute;
-    z-index: 6;
-    font-size: 20px;
-    letter-spacing: 4px;
-    top: 48px;
-    left: 50%;
-    transform: translateX(-50%);
-    white-space: nowrap;
-}
-
-.cake-name {
-    font-weight: bold;
-    color: #75bddb;
+.cake-decoration {
+  position: absolute;
+  bottom: 35px;
+  left: 62px;
+  font-size: 30px;
 }
 
 /* =========================
    GIFT
 ========================= */
 
+.gift-area {
+  min-height: 700px;
+}
+
 .gift {
-    position: relative;
-    width: 150px;
-    height: 120px;
-    margin: 30px auto;
-    cursor: pointer;
+  width: 180px;
+  height: 150px;
+  position: relative;
+  margin: 100px auto 50px;
+  cursor: pointer;
 }
 
 .gift-box {
-    position: absolute;
-    bottom: 0;
-    width: 150px;
-    height: 90px;
-    background: #a9ddf5;
-    border-radius: 8px;
+  position: absolute;
+  bottom: 0;
+  width: 180px;
+  height: 120px;
+  background: #a8d9f5;
+  border-radius: 12px;
+}
+
+.gift-box::before {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 120px;
+  background: #ffffffaa;
+  left: 78px;
 }
 
 .gift-lid {
-    position: absolute;
-    top: 15px;
-    left: -8px;
-    width: 166px;
-    height: 30px;
-    background: #91d3ef;
-    border-radius: 8px;
-    transition: .7s;
-    z-index: 2;
+  position: absolute;
+  width: 195px;
+  height: 35px;
+  left: -7px;
+  top: 15px;
+  background: #92cbed;
+  border-radius: 10px;
+  transition: .8s ease;
+  z-index: 3;
 }
 
-.ribbon-v {
-    position: absolute;
-    width: 22px;
-    height: 105px;
-    background: white;
-    left: 64px;
-    bottom: 0;
-}
-
-.ribbon-h {
-    position: absolute;
-    width: 150px;
-    height: 20px;
-    background: white;
-    top: 35px;
-    left: 0;
+.gift-ribbon {
+  position: absolute;
+  width: 28px;
+  height: 35px;
+  background: #ffffffaa;
+  left: 76px;
+  top: 15px;
+  z-index: 4;
 }
 
 .gift.open .gift-lid {
-    transform: translateY(-75px) rotate(-8deg);
+  transform: translateY(-70px) rotate(-5deg);
 }
 
-.photo {
-    display: none;
-    margin-top: 25px;
-    animation: appear 1s ease;
+.gift-message {
+  display: none;
+  animation: popIn .8s ease;
 }
 
-.photo img {
-    width: min(300px, 85vw);
-    border-radius: 20px;
-    box-shadow: 0 10px 25px rgba(0,0,0,.18);
+.gift-message h2 {
+  color: #6ba4c9;
 }
 
-.final {
-    padding-bottom: 100px;
+.aib-photo {
+  max-width: min(330px, 90%);
+  border-radius: 22px;
+  margin-top: 20px;
+  box-shadow: 0 15px 35px rgba(80,130,160,.25);
 }
 
-@keyframes appear {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
+/* =========================
+   MUSIC NOTE
+========================= */
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.music-note {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: rgba(255,255,255,.8);
+  padding: 10px 14px;
+  border-radius: 20px;
+  color: #78a9c5;
+  font-size: 13px;
+  z-index: 20;
+  display: none;
 }
 
-.small {
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+  section {
+    padding: 60px 0;
+  }
+
+  .section-title {
+    font-size: 25px;
+  }
+
+  .envelope-scene {
+    transform: scale(.9);
+    transform-origin: top center;
+    margin-bottom: -30px;
+  }
+
+  .letter {
     font-size: 13px;
-    opacity: .7;
-}
+  }
 
-.next-button {
-    margin-top: 25px;
+  .calendar {
+    padding: 18px 10px;
+  }
+
+  .day {
+    font-size: 13px;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<!-- DECORATION -->
-<div class="cloud cloud1">☁️</div>
-<div class="cloud cloud2">☁️</div>
-<div class="cloud cloud3">☁️</div>
+<!-- BACKGROUND -->
+<div class="cloud cloud1"></div>
+<div class="cloud cloud2"></div>
+<div class="cloud cloud3"></div>
 
 <div class="sparkle s1">✦</div>
 <div class="sparkle s2">✧</div>
 <div class="sparkle s3">✦</div>
-
+<div class="sparkle s4">✧</div>
 
 <!-- =========================
      PASSWORD
@@ -605,532 +726,473 @@ section {
 
 <div id="passwordScreen">
 
-    <div class="password-box">
+  <div class="password-box" id="passwordBox">
 
-        <h1>Hii Naila! 🩵</h1>
+    <h1>Hii Naila! 🩵</h1>
 
-        <p>
-            Masukin password dulu yaa ☁️
-        </p>
+    <p>
+      Ada sesuatu buat kamu ☁️<br>
+      Tapi password duluu hehe
+    </p>
 
-        <input
-            type="password"
-            id="password"
-            placeholder="Password"
-            onkeydown="if(event.key==='Enter') unlock()"
-        >
+    <input
+      type="password"
+      id="password"
+      placeholder="Password"
+      onkeydown="if(event.key === 'Enter') unlock()"
+    >
 
-        <button onclick="unlock()">
-            Open 💌
-        </button>
+    <button onclick="unlock()">
+      Open 💌
+    </button>
 
-        <div id="error">
-            Passwordnya salahh 😭
-        </div>
-
+    <div id="error">
+      Passwordnya salahh 😭
     </div>
+
+  </div>
 
 </div>
 
 
 <!-- =========================
-     MAIN
+     MAIN WEBSITE
 ========================= -->
 
 <div id="main">
 
+  <div class="music-note" id="musicNote">
+    🎵 playing something for you...
+  </div>
 
-<!-- TITLE -->
 
-<section class="title">
+  <!-- HERO -->
+  <section class="hero">
+
+    <div class="small">
+      ✦ September 13, 2026 ✦
+    </div>
+
+    <h1>Happy Birthday!</h1>
 
     <p>
-        ☁️ a little something for you ☁️
+      Specially made for Naila 🩵
     </p>
 
-    <h1>
-        Happy Birthday<br>
-        Naila! 🩵
-    </h1>
+    <div class="scroll">
+      scroll down ☁️<br>
+      ↓
+    </div>
 
-    <p>
-        September 13, 2026 🎂
-    </p>
-
-</section>
+  </section>
 
 
-<!-- =========================
-     CALENDAR
-========================= -->
+  <!-- CALENDAR -->
+  <section>
 
-<section>
-
-    <h2>
-        Save the date! 📅
+    <h2 class="section-title">
+      A Special Date 🗓️
     </h2>
+
+    <p class="section-subtitle">
+      Find the special day...
+    </p>
 
     <div class="calendar">
 
-        <h2>
-            September 2026
-        </h2>
+      <div class="month">
+        September 2026 🎀
+      </div>
 
-        <div class="days">
+      <div class="weekdays">
+        <div>Sun</div>
+        <div>Mon</div>
+        <div>Tue</div>
+        <div>Wed</div>
+        <div>Thu</div>
+        <div>Fri</div>
+        <div>Sat</div>
+      </div>
 
-            <div>Sun</div>
-            <div>Mon</div>
-            <div>Tue</div>
-            <div>Wed</div>
-            <div>Thu</div>
-            <div>Fri</div>
-            <div>Sat</div>
+      <div class="days">
 
-        </div>
+        <div class="day empty"></div>
+        <div class="day empty"></div>
+        <div class="day">1</div>
+        <div class="day">2</div>
+        <div class="day">3</div>
+        <div class="day">4</div>
+        <div class="day">5</div>
 
-        <div class="dates">
+        <div class="day">6</div>
+        <div class="day">7</div>
+        <div class="day">8</div>
+        <div class="day">9</div>
+        <div class="day">10</div>
+        <div class="day">11</div>
+        <div class="day">12</div>
 
-            <div></div>
-            <div></div>
-            <div>1</div>
-            <div>2</div>
-            <div>3</div>
-            <div>4</div>
-            <div>5</div>
+        <div class="day birthday">13</div>
+        <div class="day">14</div>
+        <div class="day">15</div>
+        <div class="day">16</div>
+        <div class="day">17</div>
+        <div class="day">18</div>
+        <div class="day">19</div>
 
-            <div>6</div>
-            <div>7</div>
-            <div>8</div>
-            <div>9</div>
-            <div>10</div>
-            <div>11</div>
-            <div>12</div>
+        <div class="day">20</div>
+        <div class="day">21</div>
+        <div class="day">22</div>
+        <div class="day">23</div>
+        <div class="day">24</div>
+        <div class="day">25</div>
+        <div class="day">26</div>
 
-            <div class="birthday">
-                13
-            </div>
+        <div class="day">27</div>
+        <div class="day">28</div>
+        <div class="day">29</div>
+        <div class="day">30</div>
 
-            <div>14</div>
-            <div>15</div>
-            <div>16</div>
-            <div>17</div>
-            <div>18</div>
-            <div>19</div>
-
-            <div>20</div>
-            <div>21</div>
-            <div>22</div>
-            <div>23</div>
-            <div>24</div>
-            <div>25</div>
-            <div>26</div>
-
-            <div>27</div>
-            <div>28</div>
-            <div>29</div>
-            <div>30</div>
-
-        </div>
+      </div>
 
     </div>
 
-</section>
+  </section>
 
 
-<!-- =========================
-     LETTER
-========================= -->
+  <!-- LETTER -->
+  <section class="envelope-area">
 
-<section>
-
-    <h2>
-        There's something for you 💌
+    <h2 class="section-title">
+      There's a Letter for You 💌
     </h2>
 
-    <p class="small">
-        Click the envelope ☁️
+    <p class="section-subtitle">
+      Click the envelope...
     </p>
 
-    <div
-        class="envelope-container"
+    <div class="envelope-scene">
+
+      <div
+        class="envelope"
         onclick="openLetter()"
-    >
+        id="envelope"
+      >
 
-        <div
-            class="envelope"
-            id="envelope"
-        >
+        <div class="letter">
 
-            <div class="letter">
+          <h2>
+            Happy Birthday, Naila! 🎂🩵
+          </h2>
 
-                <div class="letter-text">
+          <p>
+            Selamat ulang tahun, Naila! 🥳🎉🎉<br>
+            Akhirnya nambah umur lagi yaa 💗
+            Semoga di umur yang baru ini, kamu selalu dikelilingi hal-hal baik dan orang-orang yang sayang sama kamu.
+          </p>
 
-                    <h2>
-                        Happy Birthday, Naila! 🎂🩵
-                    </h2>
+          <p>
+            Semoga semua yang kamu semogakan pelan-pelan bisa terwujud.
+            Semoga sekolahnya lancar, urusannya dimudahkan, dan semoga kamu selalu punya alasan buat senyum setiap harinya. ☁️✨
+          </p>
 
-                    <p>
-                        Selamat ulang tahun,Nailaaaa! 🥳🎉🎉<br>
-                        Akhirnya nambah umur lagi yaa 💗<br>
-                        Semoga di umur yang baru ini, kamu selalu
-                        dikelilingi hal-hal baik dan orang-orang
-                        yang sayang sama kamu.
-                    </p>
+          <p>
+            Pokoknya, jangan lupa bahagiaa!
+            Jangan terlalu banyak mikirin hal yang bikin pusing,
+            nikmatin aja perjalananmu satu-satu. 🫵🏻😼
+              btw selamat KTP biruuu 🩵🩵🩵
+          </p>
 
-                    <p>
-                        Semoga semua yang kamu semogakan
-                        pelan-pelan bisa terwujud. Semoga sekolahnya
-                        lancar, urusannya dimudahkan, dan semoga
-                        kamu selalu punya alasan buat senyum
-                        setiap harinya. ☁️✨
-                    </p>
+          <p>
+            Happy birthday sekali lagi, Naila! 🩵🎀<br>
+            Semoga tahun ini jadi tahun yang jauh lebih baik buat kamu.
+            (⁠人⁠⁠•͈⁠ᴗ⁠•͈⁠)
+          </p>
 
-                    <p>
-                        Pokoknya, jangan lupa bahagiaa!
-                        Jangan terlalu banyak mikirin hal yang
-                        bikin pusing, nikmatin aja perjalananmu
-                        satu-satu. 🫵🏻😼
-                    </p>
-
-                    <p>
-                        Happy birthday sekali lagi, Naila! 🩵🎀<br>
-                        Semoga tahun ini jadi tahun yang jauh
-                        lebih baik buat kamu.btw selamat KTP biruuu 
-                        (⁠人⁠⁠•͈⁠ᴗ⁠•͈⁠)<br>
-                        Enjoy your day and stay awesome!
-                        \(⁠≧⁠▽⁠≦⁠)/
-                    </p>
-
-                </div>
-
-            </div>
-
-            <div class="env-flap"></div>
-            <div class="env-body"></div>
+          <p style="text-align:center;">
+            Enjoy your day and stay awesome!<br>
+            \(⁠≧⁠▽⁠≦⁠)/
+          </p>
 
         </div>
 
-    </div>
+        <div class="envelope-body"></div>
 
-</section>
+        <div class="envelope-flap"></div>
 
-
-<!-- =========================
-     CAKE GAME
-========================= -->
-
-<section>
-
-    <div class="cake-game">
-
-        <h2>
-            Now, let's make your cake! 🧁
-        </h2>
-
-        <p>
-            Pilih sesukamu, Naila! ☁️🩵
-        </p>
-
-        <div class="game-box">
-
-            <!-- RASA -->
-
-            <div class="choice-title">
-                🍰 Pilih rasa
-            </div>
-
-            <div class="choices">
-
-                <button
-                    class="choice"
-                    onclick="chooseCake('flavor','🍫 Chocolate')"
-                >
-                    🍫 Chocolate
-                </button>
-
-                <button
-                    class="choice"
-                    onclick="chooseCake('flavor','🍓 Strawberry')"
-                >
-                    🍓 Strawberry
-                </button>
-
-                <button
-                    class="choice"
-                    onclick="chooseCake('flavor','🍦 Vanilla')"
-                >
-                    🍦 Vanilla
-                </button>
-
-                <button
-                    class="choice"
-                    onclick="chooseCake('flavor','🫐 Blueberry')"
-                >
-                    🫐 Blueberry
-                </button>
-
-            </div>
-
-
-            <!-- FROSTING -->
-
-            <div class="choice-title">
-                🎀 Pilih frosting
-            </div>
-
-            <div class="choices">
-
-                <button
-                    class="choice"
-                    onclick="chooseCake('frosting','#ffffff')"
-                >
-                    🤍 White
-                </button>
-
-                <button
-                    class="choice"
-                    onclick="chooseCake('frosting','#ffc9dc')"
-                >
-                    🩷 Pink
-                </button>
-
-                <button
-                    class="choice"
-                    onclick="chooseCake('frosting','#bfe8ff')"
-                >
-                    🩵 Baby Blue
-                </button>
-
-                <button
-                    class="choice"
-                    onclick="chooseCake('frosting','#d9c8ff')"
-                >
-                    💜 Lavender
-                </button>
-
-            </div>
-
-
-            <!-- TOPPING -->
-
-            <div class="choice-title">
-                🍓 Pilih topping
-            </div>
-
-            <div class="choices">
-
-                <button
-                    class="choice"
-                    onclick="chooseCake('topping','🍓🍓🍓')"
-                >
-                    🍓 Strawberry
-                </button>
-
-                <button
-                    class="choice"
-                    onclick="chooseCake('topping','🫐🫐🫐')"
-                >
-                    🫐 Blueberry
-                </button>
-
-                <button
-                    class="choice"
-                    onclick="chooseCake('topping','🍒🍒🍒')"
-                >
-                    🍒 Cherry
-                </button>
-
-                <button
-                    class="choice"
-                    onclick="chooseCake('topping','🍪🍪🍪')"
-                >
-                    🍪 Cookies
-                </button>
-
-            </div>
-
-
-            <!-- DEKORASI -->
-
-            <div class="choice-title">
-                ✨ Pilih dekorasi
-            </div>
-
-            <div class="choices">
-
-                <button
-                    class="choice"
-                    onclick="chooseCake('decoration','✨')"
-                >
-                    ✨ Sparkle
-                </button>
-
-                <button
-                    class="choice"
-                    onclick="chooseCake('decoration','🎀')"
-                >
-                    🎀 Ribbon
-                </button>
-
-                <button
-                    class="choice"
-                    onclick="chooseCake('decoration','🌸')"
-                >
-                    🌸 Flower
-                </button>
-
-                <button
-                    class="choice"
-                    onclick="chooseCake('decoration','🩵')"
-                >
-                    🩵 Hearts
-                </button>
-
-            </div>
-
-
-            <button
-                onclick="bakeCake()"
-                style="margin-top:25px;"
-            >
-                Bake My Cake! 🧁
-            </button>
-
-
-            <!-- RESULT -->
-
-            <div id="cakeResult">
-
-                <h3>
-                    Your birthday cake! 🎂
-                </h3>
-
-                <div class="cake">
-
-                    <div class="candle">
-                        <div class="flame"></div>
-                    </div>
-
-                    <div
-                        class="topping"
-                        id="cakeTopping"
-                    >
-                    </div>
-
-                    <div
-                        class="cake-top"
-                        id="cakeTop"
-                    >
-                    </div>
-
-                    <div
-                        class="frosting"
-                        id="cakeFrosting"
-                    >
-                    </div>
-
-                    <div
-                        class="cake-body"
-                        id="cakeBody"
-                    >
-                    </div>
-
-                    <div class="cake-plate"></div>
-
-                </div>
-
-                <p class="cake-name">
-                    <span id="cakeFlavor">
-                    </span>
-                    cake made just for you! 🩵
-                </p>
-
-                <p id="cakeDecoration">
-                </p>
-
-                <button
-                    class="next-button"
-                    onclick="goToGift()"
-                >
-                    What's the next surprise? 👀
-                </button>
-
-            </div>
-
+        <div class="seal">
+          💗
         </div>
 
+        <div class="envelope-shadow"></div>
+
+      </div>
+
     </div>
 
-</section>
+  </section>
 
 
-<!-- =========================
-     GIFT
-========================= -->
+  <!-- CAKE -->
+  <section>
 
-<section
-    class="final"
-    id="giftSection"
->
-
-    <h2>
-        One last thing... 🎁
+    <h2 class="section-title">
+      Let's Make a Cake! 🧁
     </h2>
 
-    <p>
-        I have a little surprise for you 👀
+    <p class="section-subtitle">
+      Kamu yang pilih kuenya 😼
+    </p>
+
+    <div class="cake-box">
+
+      <div class="choice-group">
+
+        <h3>🍰 Flavor</h3>
+
+        <div class="choices">
+
+          <button class="choice selected"
+            onclick="chooseCake(this,'flavor','chocolate')">
+            🍫 Chocolate
+          </button>
+
+          <button class="choice"
+            onclick="chooseCake(this,'flavor','strawberry')">
+            🍓 Strawberry
+          </button>
+
+          <button class="choice"
+            onclick="chooseCake(this,'flavor','vanilla')">
+            🍦 Vanilla
+          </button>
+
+          <button class="choice"
+            onclick="chooseCake(this,'flavor','blueberry')">
+            🫐 Blueberry
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <div class="choice-group">
+
+        <h3>🎀 Frosting</h3>
+
+        <div class="choices">
+
+          <button class="choice selected"
+            onclick="chooseCake(this,'frosting','#ffffff')">
+            🤍 White
+          </button>
+
+          <button class="choice"
+            onclick="chooseCake(this,'frosting','#ffc6d9')">
+            🩷 Pink
+          </button>
+
+          <button class="choice"
+            onclick="chooseCake(this,'frosting','#b9e5ff')">
+            🩵 Baby Blue
+          </button>
+
+          <button class="choice"
+            onclick="chooseCake(this,'frosting','#d9c7f5')">
+            💜 Lavender
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <div class="choice-group">
+
+        <h3>🍓 Topping</h3>
+
+        <div class="choices">
+
+          <button class="choice selected"
+            onclick="chooseCake(this,'topping','🍓🍓🍓')">
+            🍓 Strawberry
+          </button>
+
+          <button class="choice"
+            onclick="chooseCake(this,'topping','🫐🫐🫐')">
+            🫐 Blueberry
+          </button>
+
+          <button class="choice"
+            onclick="chooseCake(this,'topping','🍒🍒🍒')">
+            🍒 Cherry
+          </button>
+
+          <button class="choice"
+            onclick="chooseCake(this,'topping','🍪🍪')">
+            🍪 Cookies
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <div class="choice-group">
+
+        <h3>✨ Decoration</h3>
+
+        <div class="choices">
+
+          <button class="choice selected"
+            onclick="chooseCake(this,'decoration','✨')">
+            ✨ Sparkle
+          </button>
+
+          <button class="choice"
+            onclick="chooseCake(this,'decoration','🎀')">
+            🎀 Ribbon
+          </button>
+
+          <button class="choice"
+            onclick="chooseCake(this,'decoration','🌸')">
+            🌸 Flower
+          </button>
+
+          <button class="choice"
+            onclick="chooseCake(this,'decoration','💗')">
+            💗 Hearts
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <button class="bake-button" onclick="bakeCake()">
+        Bake My Cake! 🧁
+      </button>
+
+
+      <div class="cake-result" id="cakeResult">
+
+        <h3>Your Cake is Ready! 🎉</h3>
+
+        <div class="cake">
+
+          <div
+            class="cake-topping"
+            id="cakeTopping"
+          >
+            🍓🍓🍓
+          </div>
+
+          <div
+            class="cake-decoration"
+            id="cakeDecoration"
+          >
+            ✨
+          </div>
+
+          <div
+            class="cake-frosting"
+            id="cakeFrosting"
+          ></div>
+
+          <div
+            class="cake-base"
+            id="cakeBase"
+          ></div>
+
+        </div>
+
+        <p>
+          Looks yummy! 😭🩵
+        </p>
+
+        <button
+          class="next-button"
+          onclick="goToGift()"
+        >
+          What's the next surprise? 👀
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- GIFT -->
+  <section class="gift-area" id="giftSection">
+
+    <h2 class="section-title">
+      One Last Thing... 🎁
+    </h2>
+
+    <p class="section-subtitle">
+      There's still a gift waiting for you.
     </p>
 
     <div
-        class="gift"
-        id="gift"
-        onclick="openGift()"
+      class="gift"
+      onclick="openGift()"
+      id="gift"
     >
 
-        <div class="gift-box">
-
-            <div class="ribbon-v"></div>
-            <div class="ribbon-h"></div>
-
-        </div>
-
-        <div class="gift-lid"></div>
+      <div class="gift-box"></div>
+      <div class="gift-lid"></div>
+      <div class="gift-ribbon"></div>
 
     </div>
+
 
     <div
-        class="photo"
-        id="photo"
+      class="gift-message"
+      id="giftMessage"
     >
 
-        <h2>
-            wkwkwk 😭😭😭
-        </h2>
+      <h2>
+        HAHAHAHAHA 😭😭
+      </h2>
 
-        <img
-            src="aib.jpg"
-            alt="Surprise"
-        >
+      <p>
+        Surpriseee 😭🫵🏻
+      </p>
 
-        <p>
-            Surpriseee 😭🫵🏻
-        </p>
+      <img
+        src="aib.jpg"
+        class="aib-photo"
+        alt="Surprise"
+      >
 
-        <p>
-            Happy birthday sekali lagi, Naila! 🩵☁️
-        </p>
+      <h2>
+        HAPPY BIRTHDAY NAILAAA 🩵🎀
+      </h2>
+
+      <p>
+        Semoga hari ini menyenangkan dan tahun barumu penuh hal baik! ☁️✨
+      </p>
+
+      <p>
+        Enjoy your day! \(⁠≧⁠▽⁠≦⁠)/
+      </p>
 
     </div>
 
-</section>
-
+  </section>
 
 </div>
 
 
 <!-- MUSIC -->
-
-<audio id="music" src="SODA SODA-TWS.mp3" loop></audio>
+<audio
+  id="music"
+  src="SODA SODA-TWS.mp3"
+  loop
+></audio>
 
 
 <script>
@@ -1141,37 +1203,40 @@ section {
 
 function unlock() {
 
-    const password =
-        document.getElementById("password").value;
+  const input = document.getElementById("password");
+  const error = document.getElementById("error");
+  const box = document.getElementById("passwordBox");
+  const main = document.getElementById("main");
+  const screen = document.getElementById("passwordScreen");
+  const music = document.getElementById("music");
+  const note = document.getElementById("musicNote");
 
-    const error =
-        document.getElementById("error");
+  if (input.value === "1309") {
 
-    if (password === "1309") {
+    screen.style.display = "none";
+    main.style.display = "block";
+    note.style.display = "block";
 
-        document.getElementById("passwordScreen")
-            .style.display = "none";
+    music.play().catch(() => {
+      console.log("Browser memblokir autoplay.");
+    });
 
-        document.getElementById("main")
-            .style.display = "block";
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
 
-        const music =
-            document.getElementById("music");
+  } else {
 
-        music.play().catch(() => {
-            console.log("Autoplay diblokir browser.");
-        });
+    error.style.display = "block";
 
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
+    box.classList.remove("shake");
+    void box.offsetWidth;
+    box.classList.add("shake");
 
-    } else {
-
-        error.style.display = "block";
-
-    }
+    input.value = "";
+    input.focus();
+  }
 }
 
 
@@ -1179,128 +1244,92 @@ function unlock() {
    LETTER
 ========================= */
 
+let letterOpened = false;
+
 function openLetter() {
 
-    const envelope =
-        document.getElementById("envelope");
+  if (letterOpened) return;
 
-    envelope.classList.toggle("open");
+  letterOpened = true;
 
+  const envelope = document.getElementById("envelope");
+
+  envelope.classList.add("open");
+
+  setTimeout(() => {
+
+    document.querySelector(".envelope-area").scrollIntoView({
+      behavior: "smooth",
+      block: "center"
+    });
+
+  }, 500);
 }
 
 
 /* =========================
-   CAKE GAME
+   CAKE
 ========================= */
 
 let cakeData = {
-    flavor: "🍦 Vanilla",
-    frosting: "#ffffff",
-    topping: "🍓🍓🍓",
-    decoration: "✨"
+  flavor: "chocolate",
+  frosting: "#ffffff",
+  topping: "🍓🍓🍓",
+  decoration: "✨"
 };
 
 
-function chooseCake(type, value) {
+function chooseCake(button, type, value) {
 
-    cakeData[type] = value;
+  cakeData[type] = value;
 
-    const buttons =
-        event.currentTarget.parentElement
-        .querySelectorAll(".choice");
+  const parent = button.parentElement;
 
-    buttons.forEach(button => {
-        button.classList.remove("selected");
-    });
+  parent.querySelectorAll(".choice")
+    .forEach(btn => btn.classList.remove("selected"));
 
-    event.currentTarget.classList.add("selected");
-
+  button.classList.add("selected");
 }
 
 
 function bakeCake() {
 
-    const cakeResult =
-        document.getElementById("cakeResult");
+  const base = document.getElementById("cakeBase");
+  const frosting = document.getElementById("cakeFrosting");
+  const topping = document.getElementById("cakeTopping");
+  const decoration = document.getElementById("cakeDecoration");
+  const result = document.getElementById("cakeResult");
 
-    const cakeTop =
-        document.getElementById("cakeTop");
+  const flavors = {
+    chocolate: "#c98f68",
+    strawberry: "#f3a8b9",
+    vanilla: "#f4dfad",
+    blueberry: "#9ebde8"
+  };
 
-    const cakeBody =
-        document.getElementById("cakeBody");
+  base.style.background = flavors[cakeData.flavor];
+  frosting.style.background = cakeData.frosting;
+  topping.textContent = cakeData.topping;
+  decoration.textContent = cakeData.decoration;
 
-    const cakeFrosting =
-        document.getElementById("cakeFrosting");
+  result.style.display = "block";
 
-    const cakeTopping =
-        document.getElementById("cakeTopping");
-
-    const cakeFlavor =
-        document.getElementById("cakeFlavor");
-
-    const cakeDecoration =
-        document.getElementById("cakeDecoration");
-
-
-    /* Warna kue berdasarkan rasa */
-
-    let cakeColor = "#f7d6bd";
-
-    if (cakeData.flavor.includes("Chocolate")) {
-        cakeColor = "#9b6b50";
-    }
-
-    if (cakeData.flavor.includes("Strawberry")) {
-        cakeColor = "#f3b6c9";
-    }
-
-    if (cakeData.flavor.includes("Blueberry")) {
-        cakeColor = "#b7c9ed";
-    }
-
-
-    cakeTop.style.background =
-        cakeColor;
-
-    cakeBody.style.background =
-        cakeColor;
-
-    cakeFrosting.style.background =
-        cakeData.frosting;
-
-    cakeTopping.textContent =
-        cakeData.topping;
-
-    cakeFlavor.textContent =
-        cakeData.flavor;
-
-    cakeDecoration.textContent =
-        "Dekorasi: " +
-        cakeData.decoration;
-
-
-    cakeResult.style.display =
-        "block";
-
-
-    cakeResult.scrollIntoView({
-        behavior: "smooth",
-        block: "center"
-    });
-
+  result.scrollIntoView({
+    behavior: "smooth",
+    block: "center"
+  });
 }
 
 
 /* =========================
-   TO GIFT
+   GO TO GIFT
 ========================= */
 
 function goToGift() {
 
-    document.getElementById("giftSection")
-        .scrollIntoView({
-            behavior: "smooth"
-        });
+  document.getElementById("giftSection").scrollIntoView({
+    behavior: "smooth"
+  });
 
 }
 
@@ -1309,30 +1338,32 @@ function goToGift() {
    GIFT
 ========================= */
 
+let giftOpened = false;
+
 function openGift() {
 
-    const gift =
-        document.getElementById("gift");
+  if (giftOpened) return;
 
-    const photo =
-        document.getElementById("photo");
+  giftOpened = true;
 
-    gift.classList.add("open");
+  const gift = document.getElementById("gift");
+  const message = document.getElementById("giftMessage");
 
-    setTimeout(() => {
+  gift.classList.add("open");
 
-        photo.style.display =
-            "block";
+  setTimeout(() => {
 
-        photo.scrollIntoView({
-            behavior: "smooth"
-        });
+    message.style.display = "block";
 
-    }, 700);
+    message.scrollIntoView({
+      behavior: "smooth",
+      block: "center"
+    });
 
+  }, 800);
 }
 
 </script>
 
 </body>
-  </html>
+</html>
