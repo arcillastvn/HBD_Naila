@@ -1,0 +1,1342 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Naila 🩵</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: "Trebuchet MS", sans-serif;
+    background: linear-gradient(#dff4ff, #ffffff);
+    color: #4d6f80;
+    overflow-x: hidden;
+}
+
+/* =========================
+   DECORATION
+========================= */
+
+.cloud {
+    position: fixed;
+    font-size: 55px;
+    opacity: .45;
+    animation: float 7s ease-in-out infinite;
+    z-index: -1;
+}
+
+.cloud1 {
+    top: 8%;
+    left: 5%;
+}
+
+.cloud2 {
+    top: 25%;
+    right: 5%;
+    animation-delay: 2s;
+}
+
+.cloud3 {
+    bottom: 12%;
+    left: 10%;
+    animation-delay: 1s;
+}
+
+@keyframes float {
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+.sparkle {
+    position: fixed;
+    color: white;
+    font-size: 20px;
+    animation: sparkle 2s infinite;
+    z-index: -1;
+}
+
+.s1 {
+    top: 15%;
+    left: 25%;
+}
+
+.s2 {
+    top: 45%;
+    right: 20%;
+    animation-delay: .7s;
+}
+
+.s3 {
+    bottom: 20%;
+    right: 30%;
+    animation-delay: 1.3s;
+}
+
+@keyframes sparkle {
+    0%,100% {
+        opacity: .2;
+        transform: scale(.8);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+/* =========================
+   PASSWORD
+========================= */
+
+#passwordScreen {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+}
+
+.password-box {
+    background: rgba(255,255,255,.9);
+    padding: 35px 25px;
+    border-radius: 25px;
+    text-align: center;
+    width: 100%;
+    max-width: 350px;
+    box-shadow: 0 10px 30px rgba(100,170,200,.18);
+}
+
+.password-box h1 {
+    margin-bottom: 8px;
+}
+
+.password-box p {
+    margin-bottom: 20px;
+}
+
+input {
+    width: 100%;
+    padding: 13px;
+    border: 2px solid #c7eafa;
+    border-radius: 15px;
+    outline: none;
+    text-align: center;
+    font-size: 16px;
+}
+
+button {
+    border: none;
+    background: #a9ddf5;
+    color: white;
+    padding: 12px 22px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 15px;
+    margin-top: 12px;
+    transition: .2s;
+}
+
+button:hover {
+    background: #91d3ef;
+    transform: scale(1.03);
+}
+
+#error {
+    color: #e89a9a;
+    margin-top: 10px;
+    display: none;
+}
+
+/* =========================
+   MAIN
+========================= */
+
+#main {
+    display: none;
+}
+
+section {
+    min-height: 100vh;
+    padding: 60px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* =========================
+   TITLE
+========================= */
+
+.title h1 {
+    font-size: clamp(35px, 9vw, 65px);
+    margin: 10px;
+    color: #75bddb;
+}
+
+.title p {
+    font-size: 18px;
+}
+
+/* =========================
+   CALENDAR
+========================= */
+
+.calendar {
+    background: white;
+    border-radius: 25px;
+    padding: 25px;
+    width: 100%;
+    max-width: 390px;
+    box-shadow: 0 10px 30px rgba(100,170,200,.15);
+    animation: appear 1s ease;
+}
+
+.calendar h2 {
+    color: #75bddb;
+}
+
+.days,
+.dates {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.days div {
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.dates div {
+    padding: 9px 3px;
+    border-radius: 50%;
+}
+
+.birthday {
+    background: #a9ddf5;
+    color: white;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    50% {
+        transform: scale(1.15);
+        box-shadow: 0 0 15px rgba(120,200,240,.6);
+    }
+}
+
+/* =========================
+   ENVELOPE
+========================= */
+
+.envelope-container {
+    margin-top: 25px;
+    cursor: pointer;
+}
+
+.envelope {
+    width: 280px;
+    height: 180px;
+    position: relative;
+    margin: auto;
+}
+
+.env-body {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 130px;
+    background: #b9e5f7;
+    border-radius: 0 0 15px 15px;
+}
+
+.env-flap {
+    position: absolute;
+    top: 25px;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 140px solid transparent;
+    border-right: 140px solid transparent;
+    border-top: 100px solid #9edaf2;
+    transform-origin: top;
+    transition: transform 1s ease;
+    z-index: 3;
+}
+
+.letter {
+    position: absolute;
+    width: 240px;
+    height: 190px;
+    background: white;
+    left: 20px;
+    top: 35px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,.1);
+    transition: 1s ease;
+    overflow-y: auto;
+    z-index: 2;
+    opacity: 0;
+}
+
+.letter-text {
+    opacity: 0;
+    transition: opacity 1s ease 1s;
+}
+
+.letter-text h2 {
+    color: #6eb8d8;
+    font-size: 21px;
+}
+
+.letter-text p {
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.envelope.open .env-flap {
+    transform: rotateX(180deg);
+}
+
+.envelope.open .letter {
+    top: -125px;
+    opacity: 1;
+}
+
+.envelope.open .letter-text {
+    opacity: 1;
+}
+
+/* =========================
+   CAKE GAME
+========================= */
+
+.cake-game {
+    width: 100%;
+    max-width: 500px;
+}
+
+.game-box {
+    background: rgba(255,255,255,.92);
+    padding: 25px;
+    border-radius: 28px;
+    box-shadow: 0 10px 30px rgba(100,170,200,.15);
+}
+
+.game-box h2 {
+    color: #75bddb;
+}
+
+.choice-title {
+    margin-top: 22px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.choices {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 9px;
+}
+
+.choice {
+    margin: 0;
+    background: #eefaff;
+    color: #5f8495;
+    border: 2px solid transparent;
+    padding: 10px 14px;
+    border-radius: 18px;
+    font-size: 14px;
+}
+
+.choice:hover {
+    background: #dff5ff;
+    transform: translateY(-2px);
+}
+
+.choice.selected {
+    border-color: #82c9e7;
+    background: #cceeff;
+}
+
+#cakeResult {
+    display: none;
+    margin-top: 30px;
+    animation: cakeAppear .8s ease;
+}
+
+@keyframes cakeAppear {
+    from {
+        opacity: 0;
+        transform: scale(.7) translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* CAKE PREVIEW */
+
+.cake {
+    width: 230px;
+    height: 190px;
+    margin: 15px auto;
+    position: relative;
+}
+
+.candle {
+    position: absolute;
+    width: 9px;
+    height: 45px;
+    background: #9edaf2;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    border-radius: 5px;
+    z-index: 5;
+}
+
+.flame {
+    position: absolute;
+    width: 15px;
+    height: 20px;
+    background: #ffd77a;
+    border-radius: 50% 50% 50% 50%;
+    top: -17px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: flame 1s infinite;
+}
+
+@keyframes flame {
+    50% {
+        transform: translateX(-50%) scale(.8);
+    }
+}
+
+.cake-top {
+    position: absolute;
+    width: 190px;
+    height: 55px;
+    left: 20px;
+    top: 45px;
+    background: #f7d6bd;
+    border-radius: 50%;
+    z-index: 3;
+}
+
+.cake-body {
+    position: absolute;
+    width: 190px;
+    height: 80px;
+    left: 20px;
+    top: 65px;
+    background: #f7d6bd;
+    border-radius: 0 0 18px 18px;
+    z-index: 2;
+}
+
+.cake-plate {
+    position: absolute;
+    width: 220px;
+    height: 18px;
+    left: 5px;
+    bottom: 22px;
+    background: #d7f1fb;
+    border-radius: 50%;
+}
+
+.frosting {
+    position: absolute;
+    width: 190px;
+    height: 25px;
+    left: 20px;
+    top: 62px;
+    border-radius: 0 0 50% 50%;
+    z-index: 4;
+}
+
+.topping {
+    position: absolute;
+    z-index: 6;
+    font-size: 20px;
+    letter-spacing: 4px;
+    top: 48px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+}
+
+.cake-name {
+    font-weight: bold;
+    color: #75bddb;
+}
+
+/* =========================
+   GIFT
+========================= */
+
+.gift {
+    position: relative;
+    width: 150px;
+    height: 120px;
+    margin: 30px auto;
+    cursor: pointer;
+}
+
+.gift-box {
+    position: absolute;
+    bottom: 0;
+    width: 150px;
+    height: 90px;
+    background: #a9ddf5;
+    border-radius: 8px;
+}
+
+.gift-lid {
+    position: absolute;
+    top: 15px;
+    left: -8px;
+    width: 166px;
+    height: 30px;
+    background: #91d3ef;
+    border-radius: 8px;
+    transition: .7s;
+    z-index: 2;
+}
+
+.ribbon-v {
+    position: absolute;
+    width: 22px;
+    height: 105px;
+    background: white;
+    left: 64px;
+    bottom: 0;
+}
+
+.ribbon-h {
+    position: absolute;
+    width: 150px;
+    height: 20px;
+    background: white;
+    top: 35px;
+    left: 0;
+}
+
+.gift.open .gift-lid {
+    transform: translateY(-75px) rotate(-8deg);
+}
+
+.photo {
+    display: none;
+    margin-top: 25px;
+    animation: appear 1s ease;
+}
+
+.photo img {
+    width: min(300px, 85vw);
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,.18);
+}
+
+.final {
+    padding-bottom: 100px;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.small {
+    font-size: 13px;
+    opacity: .7;
+}
+
+.next-button {
+    margin-top: 25px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- DECORATION -->
+<div class="cloud cloud1">☁️</div>
+<div class="cloud cloud2">☁️</div>
+<div class="cloud cloud3">☁️</div>
+
+<div class="sparkle s1">✦</div>
+<div class="sparkle s2">✧</div>
+<div class="sparkle s3">✦</div>
+
+
+<!-- =========================
+     PASSWORD
+========================= -->
+
+<div id="passwordScreen">
+
+    <div class="password-box">
+
+        <h1>Hii Naila! 🩵</h1>
+
+        <p>
+            Masukin password dulu yaa ☁️
+        </p>
+
+        <input
+            type="password"
+            id="password"
+            placeholder="Password"
+            onkeydown="if(event.key==='Enter') unlock()"
+        >
+
+        <button onclick="unlock()">
+            Open 💌
+        </button>
+
+        <div id="error">
+            Passwordnya salahh 😭
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     MAIN
+========================= -->
+
+<div id="main">
+
+
+<!-- TITLE -->
+
+<section class="title">
+
+    <p>
+        ☁️ a little something for you ☁️
+    </p>
+
+    <h1>
+        Happy Birthday<br>
+        Naila! 🩵
+    </h1>
+
+    <p>
+        September 13, 2026 🎂
+    </p>
+
+</section>
+
+
+<!-- =========================
+     CALENDAR
+========================= -->
+
+<section>
+
+    <h2>
+        Save the date! 📅
+    </h2>
+
+    <div class="calendar">
+
+        <h2>
+            September 2026
+        </h2>
+
+        <div class="days">
+
+            <div>Sun</div>
+            <div>Mon</div>
+            <div>Tue</div>
+            <div>Wed</div>
+            <div>Thu</div>
+            <div>Fri</div>
+            <div>Sat</div>
+
+        </div>
+
+        <div class="dates">
+
+            <div></div>
+            <div></div>
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+
+            <div>6</div>
+            <div>7</div>
+            <div>8</div>
+            <div>9</div>
+            <div>10</div>
+            <div>11</div>
+            <div>12</div>
+
+            <div class="birthday">
+                13
+            </div>
+
+            <div>14</div>
+            <div>15</div>
+            <div>16</div>
+            <div>17</div>
+            <div>18</div>
+            <div>19</div>
+
+            <div>20</div>
+            <div>21</div>
+            <div>22</div>
+            <div>23</div>
+            <div>24</div>
+            <div>25</div>
+            <div>26</div>
+
+            <div>27</div>
+            <div>28</div>
+            <div>29</div>
+            <div>30</div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     LETTER
+========================= -->
+
+<section>
+
+    <h2>
+        There's something for you 💌
+    </h2>
+
+    <p class="small">
+        Click the envelope ☁️
+    </p>
+
+    <div
+        class="envelope-container"
+        onclick="openLetter()"
+    >
+
+        <div
+            class="envelope"
+            id="envelope"
+        >
+
+            <div class="letter">
+
+                <div class="letter-text">
+
+                    <h2>
+                        Happy Birthday, Naila! 🎂🩵
+                    </h2>
+
+                    <p>
+                        Selamat ulang tahun,Nailaaaa! 🥳🎉🎉<br>
+                        Akhirnya nambah umur lagi yaa 💗<br>
+                        Semoga di umur yang baru ini, kamu selalu
+                        dikelilingi hal-hal baik dan orang-orang
+                        yang sayang sama kamu.
+                    </p>
+
+                    <p>
+                        Semoga semua yang kamu semogakan
+                        pelan-pelan bisa terwujud. Semoga sekolahnya
+                        lancar, urusannya dimudahkan, dan semoga
+                        kamu selalu punya alasan buat senyum
+                        setiap harinya. ☁️✨
+                    </p>
+
+                    <p>
+                        Pokoknya, jangan lupa bahagiaa!
+                        Jangan terlalu banyak mikirin hal yang
+                        bikin pusing, nikmatin aja perjalananmu
+                        satu-satu. 🫵🏻😼
+                    </p>
+
+                    <p>
+                        Happy birthday sekali lagi, Naila! 🩵🎀<br>
+                        Semoga tahun ini jadi tahun yang jauh
+                        lebih baik buat kamu.
+                        (⁠人⁠⁠•͈⁠ᴗ⁠•͈⁠)<br>
+                        Enjoy your day and stay awesome!
+                        \(⁠≧⁠▽⁠≦⁠)/
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="env-flap"></div>
+            <div class="env-body"></div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CAKE GAME
+========================= -->
+
+<section>
+
+    <div class="cake-game">
+
+        <h2>
+            Now, let's make your cake! 🧁
+        </h2>
+
+        <p>
+            Pilih sesukamu, Naila! ☁️🩵
+        </p>
+
+        <div class="game-box">
+
+            <!-- RASA -->
+
+            <div class="choice-title">
+                🍰 Pilih rasa
+            </div>
+
+            <div class="choices">
+
+                <button
+                    class="choice"
+                    onclick="chooseCake('flavor','🍫 Chocolate')"
+                >
+                    🍫 Chocolate
+                </button>
+
+                <button
+                    class="choice"
+                    onclick="chooseCake('flavor','🍓 Strawberry')"
+                >
+                    🍓 Strawberry
+                </button>
+
+                <button
+                    class="choice"
+                    onclick="chooseCake('flavor','🍦 Vanilla')"
+                >
+                    🍦 Vanilla
+                </button>
+
+                <button
+                    class="choice"
+                    onclick="chooseCake('flavor','🫐 Blueberry')"
+                >
+                    🫐 Blueberry
+                </button>
+
+            </div>
+
+
+            <!-- FROSTING -->
+
+            <div class="choice-title">
+                🎀 Pilih frosting
+            </div>
+
+            <div class="choices">
+
+                <button
+                    class="choice"
+                    onclick="chooseCake('frosting','#ffffff')"
+                >
+                    🤍 White
+                </button>
+
+                <button
+                    class="choice"
+                    onclick="chooseCake('frosting','#ffc9dc')"
+                >
+                    🩷 Pink
+                </button>
+
+                <button
+                    class="choice"
+                    onclick="chooseCake('frosting','#bfe8ff')"
+                >
+                    🩵 Baby Blue
+                </button>
+
+                <button
+                    class="choice"
+                    onclick="chooseCake('frosting','#d9c8ff')"
+                >
+                    💜 Lavender
+                </button>
+
+            </div>
+
+
+            <!-- TOPPING -->
+
+            <div class="choice-title">
+                🍓 Pilih topping
+            </div>
+
+            <div class="choices">
+
+                <button
+                    class="choice"
+                    onclick="chooseCake('topping','🍓🍓🍓')"
+                >
+                    🍓 Strawberry
+                </button>
+
+                <button
+                    class="choice"
+                    onclick="chooseCake('topping','🫐🫐🫐')"
+                >
+                    🫐 Blueberry
+                </button>
+
+                <button
+                    class="choice"
+                    onclick="chooseCake('topping','🍒🍒🍒')"
+                >
+                    🍒 Cherry
+                </button>
+
+                <button
+                    class="choice"
+                    onclick="chooseCake('topping','🍪🍪🍪')"
+                >
+                    🍪 Cookies
+                </button>
+
+            </div>
+
+
+            <!-- DEKORASI -->
+
+            <div class="choice-title">
+                ✨ Pilih dekorasi
+            </div>
+
+            <div class="choices">
+
+                <button
+                    class="choice"
+                    onclick="chooseCake('decoration','✨')"
+                >
+                    ✨ Sparkle
+                </button>
+
+                <button
+                    class="choice"
+                    onclick="chooseCake('decoration','🎀')"
+                >
+                    🎀 Ribbon
+                </button>
+
+                <button
+                    class="choice"
+                    onclick="chooseCake('decoration','🌸')"
+                >
+                    🌸 Flower
+                </button>
+
+                <button
+                    class="choice"
+                    onclick="chooseCake('decoration','🩵')"
+                >
+                    🩵 Hearts
+                </button>
+
+            </div>
+
+
+            <button
+                onclick="bakeCake()"
+                style="margin-top:25px;"
+            >
+                Bake My Cake! 🧁
+            </button>
+
+
+            <!-- RESULT -->
+
+            <div id="cakeResult">
+
+                <h3>
+                    Your birthday cake! 🎂
+                </h3>
+
+                <div class="cake">
+
+                    <div class="candle">
+                        <div class="flame"></div>
+                    </div>
+
+                    <div
+                        class="topping"
+                        id="cakeTopping"
+                    >
+                    </div>
+
+                    <div
+                        class="cake-top"
+                        id="cakeTop"
+                    >
+                    </div>
+
+                    <div
+                        class="frosting"
+                        id="cakeFrosting"
+                    >
+                    </div>
+
+                    <div
+                        class="cake-body"
+                        id="cakeBody"
+                    >
+                    </div>
+
+                    <div class="cake-plate"></div>
+
+                </div>
+
+                <p class="cake-name">
+                    <span id="cakeFlavor">
+                    </span>
+                    cake made just for you! 🩵
+                </p>
+
+                <p id="cakeDecoration">
+                </p>
+
+                <button
+                    class="next-button"
+                    onclick="goToGift()"
+                >
+                    What's the next surprise? 👀
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     GIFT
+========================= -->
+
+<section
+    class="final"
+    id="giftSection"
+>
+
+    <h2>
+        One last thing... 🎁
+    </h2>
+
+    <p>
+        I have a little surprise for you 👀
+    </p>
+
+    <div
+        class="gift"
+        id="gift"
+        onclick="openGift()"
+    >
+
+        <div class="gift-box">
+
+            <div class="ribbon-v"></div>
+            <div class="ribbon-h"></div>
+
+        </div>
+
+        <div class="gift-lid"></div>
+
+    </div>
+
+    <div
+        class="photo"
+        id="photo"
+    >
+
+        <h2>
+            wkwkwk 😭😭😭
+        </h2>
+
+        <img
+            src="aib.jpg"
+            alt="Surprise"
+        >
+
+        <p>
+            Surpriseee 😭🫵🏻
+        </p>
+
+        <p>
+            Happy birthday sekali lagi, Naila! 🩵☁️
+        </p>
+
+    </div>
+
+</section>
+
+
+</div>
+
+
+<!-- MUSIC -->
+
+<audio
+    id="music"
+    src="lagu.mp3"
+    loop
+></audio>
+
+
+<script>
+
+/* =========================
+   PASSWORD
+========================= */
+
+function unlock() {
+
+    const password =
+        document.getElementById("password").value;
+
+    const error =
+        document.getElementById("error");
+
+    if (password === "1309") {
+
+        document.getElementById("passwordScreen")
+            .style.display = "none";
+
+        document.getElementById("main")
+            .style.display = "block";
+
+        const music =
+            document.getElementById("music");
+
+        music.play().catch(() => {
+            console.log("Autoplay diblokir browser.");
+        });
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    } else {
+
+        error.style.display = "block";
+
+    }
+}
+
+
+/* =========================
+   LETTER
+========================= */
+
+function openLetter() {
+
+    const envelope =
+        document.getElementById("envelope");
+
+    envelope.classList.toggle("open");
+
+}
+
+
+/* =========================
+   CAKE GAME
+========================= */
+
+let cakeData = {
+    flavor: "🍦 Vanilla",
+    frosting: "#ffffff",
+    topping: "🍓🍓🍓",
+    decoration: "✨"
+};
+
+
+function chooseCake(type, value) {
+
+    cakeData[type] = value;
+
+    const buttons =
+        event.currentTarget.parentElement
+        .querySelectorAll(".choice");
+
+    buttons.forEach(button => {
+        button.classList.remove("selected");
+    });
+
+    event.currentTarget.classList.add("selected");
+
+}
+
+
+function bakeCake() {
+
+    const cakeResult =
+        document.getElementById("cakeResult");
+
+    const cakeTop =
+        document.getElementById("cakeTop");
+
+    const cakeBody =
+        document.getElementById("cakeBody");
+
+    const cakeFrosting =
+        document.getElementById("cakeFrosting");
+
+    const cakeTopping =
+        document.getElementById("cakeTopping");
+
+    const cakeFlavor =
+        document.getElementById("cakeFlavor");
+
+    const cakeDecoration =
+        document.getElementById("cakeDecoration");
+
+
+    /* Warna kue berdasarkan rasa */
+
+    let cakeColor = "#f7d6bd";
+
+    if (cakeData.flavor.includes("Chocolate")) {
+        cakeColor = "#9b6b50";
+    }
+
+    if (cakeData.flavor.includes("Strawberry")) {
+        cakeColor = "#f3b6c9";
+    }
+
+    if (cakeData.flavor.includes("Blueberry")) {
+        cakeColor = "#b7c9ed";
+    }
+
+
+    cakeTop.style.background =
+        cakeColor;
+
+    cakeBody.style.background =
+        cakeColor;
+
+    cakeFrosting.style.background =
+        cakeData.frosting;
+
+    cakeTopping.textContent =
+        cakeData.topping;
+
+    cakeFlavor.textContent =
+        cakeData.flavor;
+
+    cakeDecoration.textContent =
+        "Dekorasi: " +
+        cakeData.decoration;
+
+
+    cakeResult.style.display =
+        "block";
+
+
+    cakeResult.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
+
+}
+
+
+/* =========================
+   TO GIFT
+========================= */
+
+function goToGift() {
+
+    document.getElementById("giftSection")
+        .scrollIntoView({
+            behavior: "smooth"
+        });
+
+}
+
+
+/* =========================
+   GIFT
+========================= */
+
+function openGift() {
+
+    const gift =
+        document.getElementById("gift");
+
+    const photo =
+        document.getElementById("photo");
+
+    gift.classList.add("open");
+
+    setTimeout(() => {
+
+        photo.style.display =
+            "block";
+
+        photo.scrollIntoView({
+            behavior: "smooth"
+        });
+
+    }, 700);
+
+}
+
+</script>
+
+</body>
+  </html>
